@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function celebrate() {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+</head>
+<body class="bg-pink-100 flex flex-col items-center justify-center min-h-screen text-center p-6">
+  <h1 class="text-5xl font-bold text-pink-800 mb-4">🎉 Happy Birthday! 🎉</h1>
+
+  <!-- Image from the internet (no download needed) -->
+  <img 
+    src="cake.png.jpeg" 
+    alt="Birthday Cake" 
+    class="w-48 h-auto mb-6 rounded-lg shadow-md" />
+
+  <button 
+    onclick="celebrate()" 
+    class="bg-pink-600 hover:bg-pink-700 text-white text-xl font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300">
+    Celebrate 🎊
+  </button>
+</body>
+</html>
