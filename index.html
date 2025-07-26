@@ -14,9 +14,47 @@
         origin: { y: 0.6 }
       });
     }
+
+    // Balloon animation logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const colors = ["#f472b6", "#fbbf24", "#34d399", "#60a5fa", "#f87171"];
+      const balloonContainer = document.getElementById("balloon-container");
+      for (let i = 0; i < 12; i++) {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+        balloon.style.left = Math.random() * 90 + "%";
+        balloon.style.animationDuration = (6 + Math.random() * 4) + "s";
+        balloonContainer.appendChild(balloon);
+      }
+    });
   </script>
+  <style>
+    /* Balloon styles */
+    #balloon-container {
+      position: fixed;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      pointer-events: none; z-index: 10;
+      overflow: hidden;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -120px;
+      width: 48px; height: 64px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      opacity: 0.8;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      animation: floatBalloon linear infinite;
+    }
+    @keyframes floatBalloon {
+      0% { transform: translateY(0) scale(1);}
+      80% { opacity: 0.9;}
+      100% { transform: translateY(-110vh) scale(1.05); opacity: 0;}
+    }
+  </style>
 </head>
 <body class="bg-pink-100 flex flex-col items-center justify-center min-h-screen text-center p-6">
+  <div id="balloon-container"></div>
   <h1 class="text-5xl font-bold text-pink-800 mb-4">🎉 Happy Birthday! 🎉</h1>
 
   <!-- Image from the internet (no download needed) -->
